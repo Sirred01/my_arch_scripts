@@ -1,0 +1,10 @@
+#!/bin/sh
+
+wall=$(find ~/pix/wall -type f -name "*.jpg" | shuf -n 1)
+
+xwallpaper --focus $wall
+
+wal -c
+wal -i $wall
+
+xdotool key super+F5

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Ensure maim is installed
+if ! command -v maim &>/dev/null; then
+    echo "maim is not installed. Please install maim first."
+    exit 1
+fi
+
+# Take a screenshot using maim with the current timestamp as the filename
+maim -s ~/pix/ss/screenshot_$(date +%Y-%m-%d-%H-%M-%S).png
+
+# Optionally, you can add a notification to show that the screenshot was taken
+notify-send "Screenshot taken and saved"
+

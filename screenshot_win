@@ -1,0 +1,16 @@
+
+#!/bin/bash
+
+# Ensure maim and xdotool are installed
+if ! command -v maim &>/dev/null || ! command -v xdotool &>/dev/null; then
+    echo "maim and/or xdotool are not installed. Please install them first."
+    exit 1
+fi
+
+# Get the window ID of the currently focused window
+window_id=$(xdotool getactivewindow)
+
+# Take a screenshot of the currently focused window using maim
+maim -i "$window_id" ~/pix/ss/screenshot_$(date +%Y-%m-%d-%H-%M-%S).png
+
+notify-send "Screenshot of the window has taken"

@@ -1,0 +1,2 @@
+#!/bin/sh
+sudo cat ~/.local/bin/open_list | fzf --preview 'tree -C {} | head -n 20' | xargs -I{} bash -c 'file=$(find ~/ -type f | fzf); {} "$file"'
